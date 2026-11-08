@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1d1d1f">
+  <title>Level Up AI — Daily Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Level Up AI home"><span class="brand-mark">L</span><span class="brand-name">level<span>up</span><small>.ai</small></span></a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <a class="nav-item active" href="#dashboard"><span class="nav-icon">▦</span> Dashboard</a>
+        <a class="nav-item" href="#checklist"><span class="nav-icon">☑</span> Daily checklist</a>
+        <a class="nav-item" href="#progress"><span class="nav-icon">↗</span> My progress</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="streak-card"><span class="streak-flame">✦</span><div><strong id="streakValue">0 day streak</strong><small>Keep showing up.</small></div></div>
+        <div class="profile-mini"><div class="avatar">U</div><div><strong>Your space</strong><small>Personal dashboard</small></div><span class="more">···</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">L</span><strong>levelup<span>.ai</span></strong></div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong>Dashboard</strong></div>
+        <div class="topbar-right"><span class="live-dot"></span><span class="today-label">YOUR DAILY SPACE</span><div class="top-avatar">U</div></div>
+      </header>
+
+      <section class="welcome-row">
+        <div><p class="eyebrow">YOUR JOURNEY, ONE DAY AT A TIME</p><h1>Today is yours<span>.</span></h1><p class="welcome-sub">Small actions. Consistent progress. A better you.</p></div>
+        <div class="date-pill"><span>◷</span><span id="todayDate">Today</span></div>
+      </section>
+
+      <section class="dashboard-grid">
+        <section class="panel checklist-panel" id="checklist">
+          <div class="panel-heading">
+            <div><p class="eyebrow">DAILY ACTIONS</p><h2>Today's checklist</h2><p class="panel-subtitle">Make today count, one task at a time.</p></div>
+            <span class="task-count" id="taskCount">0 TASKS</span>
+          </div>
+          <div class="completion-strip">
+            <div class="completion-copy"><strong id="completionText">0% completed</strong><span id="completionFraction">0 of 0 tasks</span></div>
+            <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+          </div>
+          <div class="task-list" id="taskList" aria-live="polite"></div>
+          <form class="add-task-form" id="addTaskForm">
+            <input id="newTaskInput" type="text" maxlength="90" placeholder="Add a task for today..." aria-label="New task" required>
+            <button type="submit" aria-label="Add task">＋</button>
+          </form>
+          <div class="panel-footer"><span class="footer-spark">✦</span> Progress is built through consistency.</div>
+        </section>
+
+        <aside class="side-column">
+          <section class="panel focus-panel">
+            <div class="focus-icon">✧</div><p class="eyebrow">DAILY FOCUS</p><h3>Show up for<br>your future self.</h3><p>Complete the small things you planned. Your progress adds up.</p>
+            <div class="focus-bottom"><span class="focus-dot"></span> One day at a time</div>
+          </section>
+          <section class="panel mini-stat">
+            <div><p class="eyebrow">TASKS COMPLETED</p><strong id="miniCompleted">0</strong><small>Today's wins</small></div><div class="stat-icon">✓</div>
+          </section>
+        </aside>
+      </section>
+
+      <section class="panel chart-panel" id="progress">
+        <div class="chart-heading"><div><p class="eyebrow">YOUR CONSISTENCY</p><h2>Progress over time</h2><p class="panel-subtitle">A look at your daily task completion.</p></div><span class="chart-period">LAST 7 DAYS <span>⌄</span></span></div>
+        <div class="chart-wrap"><div class="chart-y-labels"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div><div class="chart-area"><div class="chart-gridlines"><i></i><i></i><i></i><i></i><i></i></div><svg id="progressChart" viewBox="0 0 700 190" preserveAspectRatio="none" role="img" aria-label="Daily task completion graph"><defs><linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#ff7a1a" stop-opacity=".25"/><stop offset="100%" stop-color="#ff7a1a" stop-opacity="0"/></linearGradient></defs><path id="chartArea" class="chart-area-fill" d=""/><path id="chartLine" class="chart-line" d=""/></svg><div class="chart-x-labels" id="chartLabels"></div></div></div>
+        <div class="chart-legend"><span><i></i> Daily completion</span><span class="chart-note">Your activity is saved on this device</span></div>
+      </section>
+      <footer class="page-footer">LEVEL UP AI <span>·</span> BUILD YOUR BETTER EVERY DAY</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
